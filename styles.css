@@ -1,162 +1,362 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@1,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap");
 
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Plus-Jakarta-Sans', serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans";
 }
 
-:root{
-    --primary-lime: hsl(61, 70%, 52%);
-    --primary-red: hsl(4, 69%, 50%);
-    --white: hsl(0, 0%, 100%);
-    --slate-100: hsl(202, 86%, 94%);
-    --slate-300: hsl(203, 41%, 72%);
-    --slate-500: hsl(200, 26%, 54%);
-    --slate-700: hsl(200, 24%, 40%);
-    --slate-900: hsl(202, 55%, 16%);
+:root {
+  --primary-lime: hsl(61, 70%, 52%);
+  --primary-red: hsl(4, 69%, 50%);
+  --white: hsl(0, 0%, 100%);
+  --slate-100: hsl(202, 86%, 94%);
+  --slate-300: hsl(203, 41%, 72%);
+  --slate-500: hsl(200, 26%, 54%);
+  --slate-700: hsl(200, 24%, 40%);
+  --slate-900: hsl(202, 55%, 16%);
 }
 
 .container {
-    width: 90%;
-    max-width: 1440px;
-    margin-inline: auto;
+  width: 90%;
+  max-width: 1440px;
+  margin-inline: auto;
 }
 
 .calc-top {
-    width: 100%;
-    height: 90vh;
-    padding: 10px;
-    background-color: var(--white);
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 30px;
+  /* background-color: var(--white); */
 }
 .heading {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.heading h2{
-    color: var(--slate-900);
-    margin: 5px 0;
+.heading h2 {
+  color: var(--slate-900);
+  margin: 5px 0;
 }
-.heading a{
-    font-size: 14px;
-    border-bottom: 1px solid var(--slate-700);
-    color: var(--slate-700);
-
+.heading a {
+  font-size: 14px;
+  border-bottom: 1px solid var(--slate-700);
+  color: var(--slate-700);
+}
+.heading a:hover {
+  color: var(--slate-900);
+  font-weight: 600;
 }
 
 .inputs {
-    color: var(--slate-700);
-    font-weight: 600;
+  color: var(--slate-700);
+  font-weight: 600;
 }
-.mort{
-    padding: 8px 0;
-    margin: 2px 0;
-    /* background-color: yellowgreen; */
+.mort {
+  padding: 4px 0;
 }
 .mort-label {
-    display: block;
-    margin: 10px 0;
+  display: block;
+  margin: 10px 0;
 }
 .mort-input {
-    width: 100%;
-    border: none;
-    background-color: transparent;
-    padding: 9px 15px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  padding: 9px 15px;
 }
 .mort-input:focus {
-    outline: none;
-    font-weight: 600;
-    font-size: 18px;
+  outline: none;
 }
 .group {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--slate-700);
-    border-radius: 5px;
-}
-.group .units {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--slate-300);
+  border-radius: 5px;
+  
+
+  & .units {
     padding: 9px 15px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     background-color: var(--slate-100);
+  }
 }
 
+.poundIcon,
+.group .years,
+.group .rate {
+  cursor: default;
+}
 .group .years {
-    padding: 16px 15px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+  padding: 16px 15px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .group .rate {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;   
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-
-/* input{
-    padding: 10px;
-    border: 1px solid slategrey;
-    border-left-style: none;
+/* mortgage type */
+input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: none;
+  border: 2px solid gray;
+  margin-right: 5px;
 }
-img{
-float: left;
-padding: 10px;
-border: 1px solid slategrey;
-background-color: pink;
-border-right: none;
+
+input[type="radio"]:before {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 60%;
+  margin: 20% auto;
+  border-radius: 50%;
 }
-.mort-amount::after {
-    content: "";
-    clear: both;
-    display: table;
-} */
-/* .mort-input {
-    width: 100%;
-    padding: 16px 0;
-    border: 1px solid var(--slate-900);
-    border-radius: 5px;
-    background-image: url('./assets/images/pound-sign.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 1px 1px;
-} */
 
-
-
-
-
-
-
-
-a{
-    text-decoration: none;
+input[type="radio"]:checked:before {
+  background: var(--primary-lime);
 }
-.blocked {
-    display: block;
+
+input[type="radio"]:checked {
+  border-color: var(--primary-lime);
+  width: 2em;
+  height: 2em;
 }
-.f-screen {
-    width: 100%;
+
+.options {
+  padding: 16px 15px;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.options:hover,
+.options:active {
+  border: 1.5px solid var(--primary-lime);
+  /* background-color: hsla(61, 70%, 52%, 0.228); */
+  cursor: pointer;
+}
+.options p {
+  color: var(--slate-900);
+}
+
+/* calculate button */
+#btn {
+  border: none;
+  border-radius: 30px;
+  background-color: var(--primary-lime);
+  padding: 9px 15px;
+  justify-content: center;
+  color: var(--slate-900);
+}
+#btn:hover,
+#btn:active {
+  background-color: hsla(61, 70%, 52%, 0.568);
+  cursor: pointer;
+}
+#btn img {
+  padding: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: transparent;
+}
+#btn-repay {
+  width: auto;
+  border: none;
+  padding: 9px 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* calculator result section */
+.calc-bottom {
+  padding: 3rem;
+  background-color: var(--slate-900);
+}
+.result {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.empty-summary {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.5;
+}
+.empty-summary h2,
+.completed-summary h2 {
+  color: var(--slate-100);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  word-spacing: 0.1rem;
+}
+.empty-summary p,
+.completed-summary p {
+  width: 100%;
+  color: var(--slate-300);
+  font-size: 0.9rem;
+}
+.completed-summary {
+  flex-direction: column;
+  /* justify-content: center; */
+  line-height: 1.5;
+}
+.completed-summary p {
+  width: 100%;
+  word-spacing: 0.1rem;
+}
+
+/* result value display */
+.result-display {
+  background-color: hsl(203, 37%, 11%);
+  margin-top: 20px;
+  padding: 15px 20px;
+  border-top: 4px solid var(--primary-lime);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.monthly-pay {
+  border-bottom: 1px solid var(--slate-700);
+  padding: 10px 0;
+}
+.term-pay {
+  padding-top: 25px;
+}
+.monthly-value {
+  color: var(--primary-lime);
+  font-weight: 700;
+  font-size: 2.5rem;
+  padding: 5px 0;
+}
+.term-value {
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding-top: 10px;
+}
+
+/* templates */
+a {
+  text-decoration: none;
 }
 .flex {
-    display: flex;
+  display: flex;
+}
+.slate-100 {
+  color: var(--slate-100);
+}
+.slate-300 {
+  color: var(--slate-300);
+}
+.empty {
+  display: none;
+}
+.focus-bold:hover,
+.focus-bold:active {
+  border: 1.5px solid var(--slate-900);
+  cursor: pointer;
+}
+input:hover {
+  cursor: pointer;
 }
 
-/* .attribution {
-    font-size: 11px;
+@media screen and (min-width: 600px) {
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 900px) {
+  .calc {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .calcContain {
+    margin: 2rem;
+    width: 90%;
+    height: 90%;
+    max-width: 1440px;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px var(--slate-300);
+  }
+
+  .calc-top {
+    width: 50%;
+  }
+
+  div.span {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* calculate button */
+  #btn {
+    width: 70%;
+    /* padding: 9px 15px; */
+    position: relative;
+    margin-inline: 0;
+    left: 20px;
+  }
+
+  .mort {
+    margin: 0;
+  }
+  
+  .calc-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* IMPLEMENT THROUGH JS for other states*/
+    width: 50%;
+    border-bottom-left-radius: 15%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  /* .result {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
+  /* .empty-summary {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    line-height: 1.5; 
+  }*/
+
+/* result value display */
+.result-display {
+  margin-top: 2rem;
+  height: 19em;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
-.attribution a {
-    color: hsl(228, 45%, 44%);
+
 }
-.input-field input {
-    padding-left: 30px;
-    background-image: url('./assets/images/pound-sign.svg');
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: 2px 0;
-}*/
+
+
+/* .menu{
+  font-size: 2rem;
+  &__item{
+color: aliceblue;
+  }
+ & .nestingImage{
+    border: 2px solid red;
+} */
+

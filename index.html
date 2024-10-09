@@ -1,124 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles.css">
+    <title>Mortgage Repayment Calculator</title>
+  </head>
 
-  <title>Mortgage Repayment Calculator</title>
+  <body>
+    <section class="calc">
+      <div class="calcContain">
+        <!-- calc top -->
+        <div class="calc-top">
+          <div class="heading container">
+            <h2>Mortgage Calculator</h2>
+            <a href="#" class="clear">Clear All</a>
+          </div>
 
-</head>
+          <!-- inputs -->
+          <div class="inputs container">
+            <div class="mort amount">
+              <label for="amount" class="mort-label"> Mortgage Amount</label>
+              <div class="group focus-bold">
+                <img
+                  src="./assets/images/icon-pound.svg"
+                  alt="poundIcon"
+                  class="units poundIcon"
+                />
+                <input type="text" id="amount" class="mort-input" />
+              </div>
+            </div>
 
-<body>
+            <!-- container for desktop size -->
+            <div class="span">
+              <div class="mort term">
+                <label for="term" class="mort-label"> Mortgage Term</label>
+                <div class="group focus-bold">
+                  <input type="text" id="term" class="mort-input" />
+                  <p class="units years">years</p>
+                </div>
+              </div>
 
-  <section class="calc">
-    <!-- calc top -->
-    <div class="calc-top">
-      <div class="heading container">
-        <h2>Mortgage Calculator</h2>
-        <a href="#" class="clear">Clear All</a>
+              <div class="mort rate">
+                <label for="rate" class="mort-label"> Interest Rate</label>
+                <div class="group focus-bold">
+                  <input type="text" id="rate" class="mort-input" />
+                  <img
+                    src="./assets/images/icon-percent.svg"
+                    alt="percentIcon"
+                    class="units rate"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mort">
+              <label for="type" class="mort-label"> Mortgage Type</label>
+              <div id="type" class="">
+                <!-- repayment option -->
+                <div class="group options input">
+                  <input
+                    type="radio"
+                    class=""
+                    name="payment-choice"
+                    value="repayment"
+                  />
+                  <p class="">Repayment</p>
+                </div>
+                <!-- interest-only option -->
+                <div class="group options input">
+                  <input
+                    type="radio"
+                    class=""
+                    name="payment-choice"
+                    value="interest-only"
+                  />
+                  <p class="">Interest Only</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- calculate button -->
+          <div class="container group" id="btn">
+            <img
+              src="./assets/images/icon-calculator.svg"
+              alt="calculatorIcon"
+              class="units nestingImage"
+            />
+            <input
+              type="button"
+              id="btn-repay"
+              class="mort-input"
+              value="Calculate Repayments"
+            />
+          </div>
+        </div>
+
+        <!-- calc bottom -->
+        <!-- Empty results start -->
+        <div class="calc-bottom">
+          <div class="result flex">
+            <div class="result-img">
+              <img
+                src="./assets/images/illustration-empty.svg"
+                alt="empty-result"
+              />
+            </div>
+
+            <div class="empty-summary flex">
+              <h2>Results shown here</h2>
+              <p>
+                Complete the form and click “calculate repayments” to see what
+                your monthly repayments would be
+              </p>
+            </div>
+          </div>
+          <!-- Empty results end -->
+
+          <!-- Completed results start -->
+          <div class="completed empty">
+            <div class="completed-summary flex">
+              <h2>Your results</h2>
+              <p>
+                Your results are shown below based on the information you
+                provided. To adjust the results, edit the form and click
+                “calculate repayments” again.
+              </p>
+            </div>
+            <div class="result-display">
+              <div class="monthly-pay">
+                <p class="slate-300">Your monthly repayments</p>
+                <p class="monthly-value">£1,797.74</p>
+              </div>
+              <div class="term-pay">
+                <p class="slate-300">Total you'll repay over the term</p>
+                <p class="term-value slate-100">£539,322.94</p>
+              </div>
+            </div>
+          </div>
+          <!-- Completed results end -->
+        </div>
+
       </div>
+    </section>
 
-      <!-- inputs -->
-      <div class="inputs container">
-        <div class="mort amount">
-          <label for="amount" class="mort-label"> Mortgage Amount</label>
-          <div class="group">
-            <img src="./assets/images/icon-pound.svg" alt="poundIcon" class="units">
-            <input type="text" id="amount" class="mort-input">
-          </div>
-        </div>
+    <script src="calc.js"></script>
+  </body>
+</html>
 
-        <div class="mort term">
-          <label for="term" class="mort-label"> Mortgage Term</label>
-          <div class="group">
-            <input type="text" id="term" class="mort-input">
-            <p class="units years"> years </p>
-          </div>
-        </div>
-
-        <div class="mort rate">
-          <label for="rate" class="mort-label"> Mortgage Amount</label>
-          <div class="group">
-            <input type="text" id="rate" class="mort-input">
-            <img src="./assets/images/icon-percent.svg" alt="percentIcon" class="units rate">
-          </div>
-        </div>
-
-        <div class="mort type">
-          <label for="rate" class="mort-label"> Mortgage Amount</label>
-          <div class="group">
-            <input type="text" id="rate" class="mort-input">
-            <img src="./assets/images/icon-percent.svg" alt="percentIcon" class="units rate">
-          </div>
-      </div>
-
-      
-
-
-    
-    </div>
-  </section>
-
-  <!-- doCalc Button -->
-  <!-- <div class="button">
-        <button>
-          <img src="./assets/images/icon-calculator.svg" alt="brain-icon" />
-          Calculate Repayments</button>
-      </div>
-
-
-
-      <div class="mort interest-rate">
-          <label for="interest-rate" class="mort-label"> Interest Rate</label>
-          <div class="group">
-            <input type="text" id="interest-rate" class="mort-input">
-            <img src="./assets/images/icon-percent.svg" alt="percentIcon" class="units rate">
-          </div>
-        </div>
-    </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Mortgage Calculator
-  Clear All
-
-  Mortgage Amount
-
-  Mortgage Term
-
-  Interest Rate
-
-  Mortgage Type
-  Repayment
-  Interest Only
-
-  Calculate Repayments -->
-
-  <!-- Empty results start -->
-
-  <!-- Results shown here
-
-  Complete the form and click “calculate repayments” to see what 
-  your monthly repayments would be. -->
-
-  <!-- Empty results end -->
-
-  <!-- Completed results start -->
-
-  <!-- Your results
+<!-- Your results
 
   Your results are shown below based on the information you provided. 
   To adjust the results, edit the form and click “calculate repayments” again.
@@ -127,15 +166,4 @@
 
   Total you'll repay over the term -->
 
-  <!-- Completed results end -->
-
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
-
-
-  <script src="calc.js"></script>
-</body>
-
-</html>
+<!-- Completed results end -->
