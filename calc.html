@@ -14,87 +14,84 @@
         <div class="calc__container-top">
           <div class="calc__heading">
             <h2>Mortgage Calculator</h2>
-            <!-- <button class="clear">Clear All</button> -->
-            <a href="#" class="clear">Clear All</a>
+            <p class="clear">Clear All</p>
           </div>
           <!-- inputs -->
-           <div class="form-to_clear">
-          <div class="calc__inputs">
-            <div class="input__field">
-              <label for="amount">Mortgage Amount</label>
-              <div class="input__field-group" id="amount">
-                <img
-                  src="./assets/images/icon-pound.svg"
-                  alt="poundIcon"
-                  class="input__field-icon"
-                />
-                <input type="text" class="input__field-text" />
-              </div>
-            </div>
-          </div>
-
-          <div class="calc__inputs-double">
-            <!-- second -->
             <div class="calc__inputs">
               <div class="input__field">
-                <label for="term">Mortgage Term</label>
-                <div class="input__field-group" id="term">
-                  <input
-                    type="text"
-                    class="input__field-text align_text-right"
-                  />
-                  <p class="input__field-icon align_icon-right yearsIcon">
-                    years
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- third -->
-            <div class="calc__inputs">
-              <div class="input__field">
-                <label for="rate">Interest Rate</label>
-                <div class="input__field-group" id="rate">
-                  <input
-                    type="text"
-                    class="input__field-text align_text-right"
-                  />
+                <label for="amount">Mortgage Amount</label>
+                <div class="input__field-group" id="amount">
                   <img
-                    src="./assets/images/icon-percent.svg"
-                    alt="poundPercent"
-                    class="input__field-icon align_icon-right"
+                    src="./assets/images/icon-pound.svg"
+                    alt="poundIcon"
+                    class="input__field-icon"
                   />
+                  <input type="text" class="input__field-text user-input" />
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- forth set-->
-          <div class="calc__inputs">
-            <div class="input__field">
-              <label for="type">Mortgage Type</label>
-              <div class="input__field-group input__field-block" id="type">
-                <div class="input__field-radio">
-                  <input
-                    type="radio"
-                    value="repayment"
-                    name="mortgage-type"
-                    class="radio-btn"
-                  />
-                  Repayment
+            <div class="calc__inputs-double">
+              <!-- second -->
+              <div class="calc__inputs">
+                <div class="input__field">
+                  <label for="term">Mortgage Term</label>
+                  <div class="input__field-group" id="term">
+                    <input
+                      type="text"
+                      class="input__field-text align_text-right user-input"
+                    />
+                    <p class="input__field-icon align_icon-right yearsIcon">
+                      years
+                    </p>
+                  </div>
                 </div>
-                <div class="input__field-radio">
-                  <input
-                    type="radio"
-                    value="interest-only"
-                    name="mortgage-type"
-                    class="radio-btn"
-                  />
-                  Interest Only
+              </div>
+              <!-- third -->
+              <div class="calc__inputs">
+                <div class="input__field">
+                  <label for="rate">Interest Rate</label>
+                  <div class="input__field-group" id="rate">
+                    <input
+                      type="text"
+                      class="input__field-text align_text-right user-input"
+                    />
+                    <img
+                      src="./assets/images/icon-percent.svg"
+                      alt="poundPercent"
+                      class="input__field-icon align_icon-right"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          </div>
+
+            <!-- forth set-->
+            <div class="calc__inputs">
+              <div class="input__field">
+                <label for="type">Mortgage Type</label>
+                <div class="input__field-group input__field-block" id="type">
+                  <div class="input__field-radio">
+                    <input
+                      type="radio"
+                      value="repayment"
+                      name="mortgage-type"
+                      class="radio-btn user-input"
+                    />
+                    Repayment
+                  </div>
+                  <div class="input__field-radio">
+                    <input
+                      type="radio"
+                      value="interest-only"
+                      name="mortgage-type"
+                      class="radio-btn user-input"
+                    />
+                    Interest Only
+                  </div>
+                </div>
+              </div>
+            </div>
 
           <!-- calculate button -->
           <div class="input__field">
@@ -116,7 +113,7 @@
         <!-- calc bottom -->
         <div class="calc__container-bottom">
           <!-- empty result -->
-          <section class="result__display result__display-empty ">
+          <section class="result__display result__display-empty">
             <div class="result__view">
               <div class="result__view-img">
                 <img

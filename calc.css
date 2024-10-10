@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Plus Jakarta Sans";
+  cursor: pointer;
 }
 
 :root {
@@ -16,10 +17,6 @@
   --slate-500: hsl(200, 26%, 54%);
   --slate-700: hsl(200, 24%, 40%);
   --slate-900: hsl(202, 55%, 16%);
-}
-
-body {
-    cursor: pointer;
 }
 
 .calc__container-top {
@@ -35,20 +32,18 @@ body {
     color: var(--slate-900);
   }
 
-  & a.clear {
+  & .clear {
     font-size: 0.8rem;
+    color: var(--slate-300);
+    max-width: 53px;
+    padding-top: .5rem;
     border-bottom: 1px solid var(--slate-300);
 }
 }
-a.clear:visited {
-    color: var(--slate-500);
-}
-a.clear:hover {
+.clear:hover {
     color: var(--slate-900);
+    font-weight: 600;
     border-bottom: 1px solid var(--slate-900);
-}
-a.clear:focus {
-  outline: none;
 }
 
 .calc__inputs {
@@ -84,12 +79,24 @@ a.clear:focus {
     border-radius: 0 5px 5px 0;
   }
 }
-
-/* .input__field-text:focus {
-  outline: none;
-} */
+/* input fields - FOCUS */
 .input__field-text:focus {
   outline: none;
+}
+input.input__field-text:hover {
+  border: 1.5px solid var(--slate-900);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+}
+input.input__field-text.align_text-right:hover {
+  border: 1.5px solid var(--slate-900);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+}
+.input__field-icon:hover {
+  border: 1.5px solid var(--slate-900);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
 }
 .input__field-group .align_text-right {
   border: 1.5px solid var(--slate-500);
@@ -146,7 +153,11 @@ a.clear:focus {
     }
   }
 }
+.input__field-radio:hover {
+  border-color: var(--primary-lime);
+}
 
+/* calculate button */
 .input__field-submit {
   width: 100%;
   display: flex;
@@ -180,7 +191,7 @@ a.clear:focus {
   background-color: var(--slate-900);
 }
 
-/* result__display-empty */
+/* result__display - EMPTY */
 .result__view-img {
   display: flex;
   justify-content: center;
@@ -199,12 +210,11 @@ a.clear:focus {
   }
 
   & p {
-    /* padding: 0 1.3rem; */
     color: var(--slate-300);
   }
 }
 
-/* result__display-completed */
+/* result__display - COMPLETED */
 .align-left {
   display: block;
   text-align: left;
@@ -249,7 +259,7 @@ label {
 .no_display {
   display: none;
 }
-/* all active inputs */
+/* input fields - ACTIVE */
 input.input__field-text.text-active {
 border-color: var(--primary-lime);
 }

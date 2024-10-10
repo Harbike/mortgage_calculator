@@ -3,10 +3,17 @@ const calC = document.querySelector('html');
 
 // reset form
 const clearBtn = document.querySelector(".clear");
-const calcForm = document.querySelector(".form-to_clear");
+const calcInputs = document.querySelectorAll(".user-input");
 
 clearBtn.onclick = function() {
-    calcForm.reset();
+    console.log('i was clicked');
+    
+    calcInputs.forEach(calcInput => {
+        calcInput.value = '';
+        radioButtons.forEach(radioBtn => {
+            radioBtn.checked = false;
+        })
+    })
   };
 
 // Active states
@@ -16,7 +23,7 @@ const inputFieldIcons = document.querySelectorAll(".input__field-icon");
 const inputFieldRadios = document.querySelectorAll(".input__field-radio");
 const radioButtons = document.querySelectorAll(".radio-btn");
 
-// INPUT FIELDS
+// INPUT FIELDS ACTIVE
 // text inputs
 inputFieldTexts.forEach((text, index) => {
     const icon = inputFieldIcons[index];
