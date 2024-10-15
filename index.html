@@ -25,81 +25,81 @@
             <p class="clear">Clear All</p>
           </div>
           <!-- inputs -->
+          <div class="calc__inputs">
+            <div class="input__field">
+              <label for="amount">Mortgage Amount</label>
+              <div class="input__field-group" id="amount">
+                <img
+                  src="./assets/images/icon-pound.svg"
+                  alt="poundIcon"
+                  class="input__field-icon"
+                />
+                <input type="text" class="input__field-text user-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="calc__inputs-double">
+            <!-- second -->
             <div class="calc__inputs">
               <div class="input__field">
-                <label for="amount">Mortgage Amount</label>
-                <div class="input__field-group" id="amount">
-                  <img
-                    src="./assets/images/icon-pound.svg"
-                    alt="poundIcon"
-                    class="input__field-icon"
+                <label for="term">Mortgage Term</label>
+                <div class="input__field-group" id="term">
+                  <input
+                    type="text"
+                    class="input__field-text align_text-right user-input"
                   />
-                  <input type="text" class="input__field-text user-input" />
+                  <p class="input__field-icon align_icon-right yearsIcon">
+                    years
+                  </p>
                 </div>
               </div>
             </div>
-
-            <div class="calc__inputs-double">
-              <!-- second -->
-              <div class="calc__inputs">
-                <div class="input__field">
-                  <label for="term">Mortgage Term</label>
-                  <div class="input__field-group" id="term">
-                    <input
-                      type="text"
-                      class="input__field-text align_text-right user-input"
-                    />
-                    <p class="input__field-icon align_icon-right yearsIcon">
-                      years
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!-- third -->
-              <div class="calc__inputs">
-                <div class="input__field">
-                  <label for="rate">Interest Rate</label>
-                  <div class="input__field-group" id="rate">
-                    <input
-                      type="text"
-                      class="input__field-text align_text-right user-input"
-                    />
-                    <img
-                      src="./assets/images/icon-percent.svg"
-                      alt="poundPercent"
-                      class="input__field-icon align_icon-right"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- forth set-->
+            <!-- third -->
             <div class="calc__inputs">
               <div class="input__field">
-                <label for="type">Mortgage Type</label>
-                <div class="input__field-group input__field-block" id="type">
-                  <div class="input__field-radio">
-                    <input
-                      type="radio"
-                      value="repayment"
-                      name="mortgage-type"
-                      class="radio-btn user-input"
-                    />
-                    Repayment
-                  </div>
-                  <div class="input__field-radio">
-                    <input
-                      type="radio"
-                      value="interest-only"
-                      name="mortgage-type"
-                      class="radio-btn user-input"
-                    />
-                    Interest Only
-                  </div>
+                <label for="rate">Interest Rate</label>
+                <div class="input__field-group" id="rate">
+                  <input
+                    type="text"
+                    class="input__field-text align_text-right user-input"
+                  />
+                  <img
+                    src="./assets/images/icon-percent.svg"
+                    alt="poundPercent"
+                    class="input__field-icon align_icon-right"
+                  />
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- forth set-->
+          <div class="calc__inputs">
+            <div class="input__field">
+              <label for="type">Mortgage Type</label>
+              <div class="input__field-group input__field-block" id="type">
+                <div class="input__field-radio">
+                  <input
+                    type="radio"
+                    value="repayment"
+                    name="mortgage-type"
+                    class="radio-btn user-input"
+                  />
+                  Repayment
+                </div>
+                <div class="input__field-radio">
+                  <input
+                    type="radio"
+                    value="interest-only"
+                    name="mortgage-type"
+                    class="radio-btn user-input"
+                  />
+                  Interest Only
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- calculate button -->
           <div class="input__field">
