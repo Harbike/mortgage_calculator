@@ -16,154 +16,158 @@
   </head>
 
   <body>
-    <section class="calc">
-      <div class="calcContain">
+    <section class="calculator">
+      <div class="calc__container">
         <!-- calc top -->
-        <div class="calc-top">
-          <div class="heading container">
+        <div class="calc__container-top">
+          <div class="calc__heading">
             <h2>Mortgage Calculator</h2>
-            <a href="#" class="clear">Clear All</a>
+            <p class="clear">Clear All</p>
           </div>
-
           <!-- inputs -->
-          <div class="inputs container">
-            <div class="mort amount">
-              <label for="amount" class="mort-label"> Mortgage Amount</label>
-              <div class="group focus-bold">
-                <img
-                  src="./assets/images/icon-pound.svg"
-                  alt="poundIcon"
-                  class="units poundIcon"
-                />
-                <input type="text" id="amount" class="mort-input" />
-              </div>
-            </div>
-
-            <!-- container for desktop size -->
-            <div class="span">
-              <div class="mort term">
-                <label for="term" class="mort-label"> Mortgage Term</label>
-                <div class="group focus-bold">
-                  <input type="text" id="term" class="mort-input" />
-                  <p class="units years">years</p>
-                </div>
-              </div>
-
-              <div class="mort rate">
-                <label for="rate" class="mort-label"> Interest Rate</label>
-                <div class="group focus-bold">
-                  <input type="text" id="rate" class="mort-input" />
+            <div class="calc__inputs">
+              <div class="input__field">
+                <label for="amount">Mortgage Amount</label>
+                <div class="input__field-group" id="amount">
                   <img
-                    src="./assets/images/icon-percent.svg"
-                    alt="percentIcon"
-                    class="units rate"
+                    src="./assets/images/icon-pound.svg"
+                    alt="poundIcon"
+                    class="input__field-icon"
                   />
+                  <input type="text" class="input__field-text user-input" />
                 </div>
               </div>
             </div>
 
-            <div class="mort">
-              <label for="type" class="mort-label"> Mortgage Type</label>
-              <div id="type" class="">
-                <!-- repayment option -->
-                <div class="group options input">
-                  <input
-                    type="radio"
-                    class=""
-                    name="payment-choice"
-                    value="repayment"
-                  />
-                  <p class="">Repayment</p>
+            <div class="calc__inputs-double">
+              <!-- second -->
+              <div class="calc__inputs">
+                <div class="input__field">
+                  <label for="term">Mortgage Term</label>
+                  <div class="input__field-group" id="term">
+                    <input
+                      type="text"
+                      class="input__field-text align_text-right user-input"
+                    />
+                    <p class="input__field-icon align_icon-right yearsIcon">
+                      years
+                    </p>
+                  </div>
                 </div>
-                <!-- interest-only option -->
-                <div class="group options input">
-                  <input
-                    type="radio"
-                    class=""
-                    name="payment-choice"
-                    value="interest-only"
-                  />
-                  <p class="">Interest Only</p>
+              </div>
+              <!-- third -->
+              <div class="calc__inputs">
+                <div class="input__field">
+                  <label for="rate">Interest Rate</label>
+                  <div class="input__field-group" id="rate">
+                    <input
+                      type="text"
+                      class="input__field-text align_text-right user-input"
+                    />
+                    <img
+                      src="./assets/images/icon-percent.svg"
+                      alt="poundPercent"
+                      class="input__field-icon align_icon-right"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+
+            <!-- forth set-->
+            <div class="calc__inputs">
+              <div class="input__field">
+                <label for="type">Mortgage Type</label>
+                <div class="input__field-group input__field-block" id="type">
+                  <div class="input__field-radio">
+                    <input
+                      type="radio"
+                      value="repayment"
+                      name="mortgage-type"
+                      class="radio-btn user-input"
+                    />
+                    Repayment
+                  </div>
+                  <div class="input__field-radio">
+                    <input
+                      type="radio"
+                      value="interest-only"
+                      name="mortgage-type"
+                      class="radio-btn user-input"
+                    />
+                    Interest Only
+                  </div>
+                </div>
+              </div>
+            </div>
 
           <!-- calculate button -->
-          <div class="container group" id="btn">
-            <img
-              src="./assets/images/icon-calculator.svg"
-              alt="calculatorIcon"
-              class="units nestingImage"
-            />
-            <input
-              type="button"
-              id="btn-repay"
-              class="mort-input"
-              value="Calculate Repayments"
-            />
+          <div class="input__field">
+            <div class="input__field-submit">
+              <img
+                src="./assets/images/icon-calculator.svg"
+                alt="calculatorIcon"
+                class=""
+              />
+              <input
+                type="submit"
+                class="submit-btn"
+                value="Calculate Repayments"
+              />
+            </div>
           </div>
         </div>
 
         <!-- calc bottom -->
-        <!-- Empty results start -->
-        <div class="calc-bottom">
-          <div class="result flex">
-            <div class="result-img">
-              <img
-                src="./assets/images/illustration-empty.svg"
-                alt="empty-result"
-              />
-            </div>
-
-            <div class="empty-summary flex">
-              <h2>Results shown here</h2>
-              <p>
-                Complete the form and click “calculate repayments” to see what
-                your monthly repayments would be
-              </p>
-            </div>
-          </div>
-          <!-- Empty results end -->
-
-          <!-- Completed results start -->
-          <div class="completed empty">
-            <div class="completed-summary flex">
-              <h2>Your results</h2>
-              <p>
-                Your results are shown below based on the information you
-                provided. To adjust the results, edit the form and click
-                “calculate repayments” again.
-              </p>
-            </div>
-            <div class="result-display">
-              <div class="monthly-pay">
-                <p class="slate-300">Your monthly repayments</p>
-                <p class="monthly-value">£1,797.74</p>
+        <div class="calc__container-bottom">
+          <!-- empty result -->
+          <section class="result__display result__display-empty">
+            <div class="result__view">
+              <div class="result__view-img">
+                <img
+                  src="./assets/images/illustration-empty.svg"
+                  alt="calculatorImage"
+                />
               </div>
-              <div class="term-pay">
-                <p class="slate-300">Total you'll repay over the term</p>
-                <p class="term-value slate-100">£539,322.94</p>
+              <div class="result__view-text">
+                <h2>Results shown here</h2>
+                <p>
+                  Complete the form and click "calculate repayments" to see what
+                  your monthly repayments would be.
+                </p>
               </div>
             </div>
-          </div>
-          <!-- Completed results end -->
+          </section>
+
+          <!-- completed result -->
+          <section class="result__display result__display-completed no_display">
+            <div class="result__view">
+              <div class="result__view-text align-left">
+                <h2>Your results</h2>
+                <p class="align-left-p">
+                  Your results are shown below based on the information you
+                  provided. To adjust the results, edit the form and click
+                  "calculate repayments" again.
+                </p>
+              </div>
+              <div class="result__view-img align-left">
+                <div class="result__view-values">
+                  <div class="values-monthly">
+                    <p>Your monthly repayments</p>
+                    <p class="monthly-price">£1,797.74</p>
+                  </div>
+                  <div class="values-termly">
+                    <p>Total you'll repay over the term</p>
+                    <p class="termly-price">£539,322.94</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-
       </div>
     </section>
 
     <script src="calc.js"></script>
   </body>
 </html>
-
-<!-- Your results
-
-  Your results are shown below based on the information you provided. 
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term -->
-
-<!-- Completed results end -->
