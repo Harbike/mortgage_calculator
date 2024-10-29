@@ -32,10 +32,11 @@
                 <img
                   src="./assets/images/icon-pound.svg"
                   alt="poundIcon"
-                  class="input__field-icon"
+                  class="input__field-icon" id="icon__mort-amount"
                 />
-                <input type="text" class="input__field-text user-input" />
+                <input type="text" class="input__field-text user-input" id="text__mort-amount" />
               </div>
+              <span class="amount_err span">The mortgage amount is required</span>
             </div>
           </div>
 
@@ -47,12 +48,13 @@
                 <div class="input__field-group" id="term">
                   <input
                     type="text"
-                    class="input__field-text align_text-right user-input"
+                    class="input__field-text align_text-right user-input" id="text__mort-term"
                   />
-                  <p class="input__field-icon align_icon-right yearsIcon">
+                  <p class="input__field-icon align_icon-right yearsIcon" id="icon__mort-term">
                     years
                   </p>
                 </div>
+                <span class="term_err span">The mortgage term is required</span>
               </div>
             </div>
             <!-- third -->
@@ -62,14 +64,15 @@
                 <div class="input__field-group" id="rate">
                   <input
                     type="text"
-                    class="input__field-text align_text-right user-input"
+                    class="input__field-text align_text-right user-input" id="text__mort-rate"
                   />
                   <img
                     src="./assets/images/icon-percent.svg"
                     alt="poundPercent"
-                    class="input__field-icon align_icon-right"
+                    class="input__field-icon align_icon-right" id="icon__mort-rate"
                   />
                 </div>
+                <span class="rate_err span">The mortgage rate is required</span>
               </div>
             </div>
           </div>
@@ -97,6 +100,7 @@
                   />
                   Interest Only
                 </div>
+                <span class="type_err span">The mortgage type is required</span>
               </div>
             </div>
           </div>
