@@ -127,7 +127,7 @@ input.input__field-text.align_text-right:hover {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0.5rem 0;
-    padding: 0.8rem 1rem;
+    padding: 0.1rem 1rem; /*padding: 0.8rem 1rem*/
     border: 1.5px solid var(--slate-500);
     border-radius: 5px;
 
@@ -263,10 +263,14 @@ label {
 .no_display {
   display: none;
 }
-.calc__inputs .span {
+/* .calc__inputs .span {
   display: none;
+} */
+label.rep{
+  width: 100%;
+  padding: .8rem 0;
 }
-span {
+.span {
   display: block;
   font-size: .66rem;
   color: var(--primary-red);

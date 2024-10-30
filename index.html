@@ -36,7 +36,7 @@
                 />
                 <input type="text" class="input__field-text user-input" id="text__mort-amount" />
               </div>
-              <span class="amount_err span">The mortgage amount is required</span>
+              <span class="amount_err no_display">The mortgage amount is required</span>
             </div>
           </div>
 
@@ -54,7 +54,7 @@
                     years
                   </p>
                 </div>
-                <span class="term_err span">The mortgage term is required</span>
+                <span class="term_err no_display">The mortgage term is required</span>
               </div>
             </div>
             <!-- third -->
@@ -72,7 +72,7 @@
                     class="input__field-icon align_icon-right" id="icon__mort-rate"
                   />
                 </div>
-                <span class="rate_err span">The mortgage rate is required</span>
+                <span class="rate_err no_display">The mortgage rate is required</span>
               </div>
             </div>
           </div>
@@ -82,25 +82,25 @@
             <div class="input__field">
               <label for="type">Mortgage Type</label>
               <div class="input__field-group input__field-block" id="type">
-                <div class="input__field-radio">
+                <div class="input__field-radio" >
                   <input
                     type="radio"
                     value="repayment"
                     name="mortgage-type"
-                    class="radio-btn user-input"
+                    class="radio-btn user-input" id="repayment"
                   />
-                  Repayment
+                  <label for="repayment" class="rep">Repayment</label>
                 </div>
-                <div class="input__field-radio">
+                <div class="input__field-radio" >
                   <input
                     type="radio"
                     value="interest-only"
                     name="mortgage-type"
-                    class="radio-btn user-input"
+                    class="radio-btn user-input" id="interest-only"
                   />
-                  Interest Only
+                  <label for="interest-only" class="rep">Interest Only</label>
                 </div>
-                <span class="type_err span">The mortgage type is required</span>
+                <span class="type_err no_display">The mortgage type is required</span>
               </div>
             </div>
           </div>
@@ -172,6 +172,35 @@
       </div>
     </section>
 
-    <script src="calc.js"></script>
+
+
+
+
+
+
+
+
+
+    <!-- <div class="ma" >
+      <input
+        type="radio"
+        value="interest-only"
+        name="mortgage-type"
+        class="" id="yo"
+      />
+      <label for="yo">Interest Only</label>
+    </div>
+    <div class="ma" >
+      <input
+        type="radio"
+        value="interest-only"
+        name="mortgage-type"
+        class="" id="oh"
+      />
+      <label for="oh">Interest Only</label>
+    </div> -->
+
+    <!-- <script src="calc.js"></script> -->
+    <script src="trial.js"></script>
   </body>
 </html>
