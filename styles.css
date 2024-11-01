@@ -263,6 +263,9 @@ label {
 .no_display {
   display: none;
 }
+/* .calc__inputs .span {
+  display: none;
+} */
 label.rep{
   width: 100%;
   padding: .8rem 0;
@@ -283,7 +286,7 @@ input.input__field-text.text-error {
 }
 div.input__field-radio.field-error {
   border-color: var(--primary-red);
-  background-color: var(--primary-red);
+  /* background-color: var(--primary-red); */
 }
 
 /* input fields - ACTIVE */
