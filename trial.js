@@ -33,6 +33,8 @@ function clearComputations() {
       icon.classList.remove("icon-error");
       error.classList.remove("span");
       error.classList.add("no_display");
+      document.querySelector(".type_err").classList.remove("span");
+      document.querySelector(".type_err").classList.add("no_display");
     });
   });
 
@@ -90,16 +92,15 @@ function calculateMortgage() {
 // ACTION - calculate mortgage
 const calcBtn = document.querySelector(".input__field-submit");
 calcBtn.onclick = () => {
-  checkInputs();
-  calculateMortgage();
+  const allInputsValid = checkInputs();
+  if (allInputsValid) {
+    calculateMortgage();
+  }
 };
 
 // params to handle error
 const inputFieldRadios = document.querySelectorAll(".input__field-radio");
-
-// FUNCTION - confirm all inputs are filled
-function checkInputs() {
-  const mortgageAmount = document.querySelector("#text__mort-amount").value;
+const mortgageAmount = document.querySelector("#text__mort-amount").value;
   const mortgageTerm = document.querySelector("#text__mort-term").value;
   const interestRate = document.querySelector("#text__mort-rate").value;
   const mortgageType = document.querySelector(".radio-btn:checked");
@@ -118,76 +119,87 @@ function checkInputs() {
 
   const mortTypeErr = document.querySelector(".type_err");
 
+// FUNCTION - confirm all inputs are filled
+function checkInputs() {
   // check all inputs
   if (
     !mortgageAmount ||
-    isNaN(mortgageAmount) ||
+    isNaN(mortgageAmount) &&
     !mortgageTerm ||
-    isNaN(mortgageTerm) ||
+    isNaN(mortgageTerm) &&
     !interestRate ||
-    isNaN(interestRate) ||
+    isNaN(interestRate) &&
     !mortgageType
   ) {
+    console.log('mortgageAmount: ', mortgageAmount)
+    console.log('mortgageTerm: ', mortgageTerm)
+    console.log('interestRate: ', interestRate)
+    
     alert(`fill all fields`);
+    mortAmountErr.classList.remove("no_display");
+    mortAmountErr.classList.add("span");
+    mortAmountText.classList.add("text-error");
+    mortAmountIcon.classList.add("icon-error");
 
-    // check for each inputs
-    // mortgageAmount
-    if (!mortgageAmount || isNaN(mortgageAmount)) {
-      console.log(`helpaaaaa`);
-      mortAmountErr.classList.remove("no_display");
-      mortAmountErr.classList.add("span");
-      mortAmountText.classList.add("text-error");
-      mortAmountIcon.classList.add("icon-error");
+    mortTermErr.classList.remove("no_display");
+    mortTermErr.classList.add("span");
+    mortTermText.classList.add("text-error");
+    mortTermIcon.classList.add("icon-error");
 
-      // to remove prompt message when error is rectified
-      mortAmountText.addEventListener("input", () => {
-        if (mortAmountErr.classList.contains("span")) {
-          mortAmountErr.classList.add("no_display");
-          mortAmountErr.classList.remove("span");
-          mortAmountText.classList.remove("text-error");
-          mortAmountIcon.classList.remove("icon-error");
-        }
-      });
-    }
-
-    // mortgageTerm
-    if (!mortgageTerm || isNaN(mortgageTerm)) {
-      console.log(`yo-yo!`);
-      mortTermErr.classList.remove("no_display");
-      mortTermErr.classList.add("span");
-      mortTermText.classList.add("text-error");
-      mortTermIcon.classList.add("icon-error");
-
-      // to remove prompt message when error is rectified
-      mortTermText.addEventListener("input", () => {
-        if (mortTermErr.classList.contains("span")) {
-          mortTermErr.classList.add("no_display");
-          mortTermErr.classList.remove("span");
-          mortTermText.classList.remove("text-error");
-          mortTermIcon.classList.remove("icon-error");
-        }
-      });
-    }
-
-    // interestRate
-    if (!interestRate || isNaN(interestRate)) {
-      console.log(`yo-yo!`);
-      mortRateErr.classList.remove("no_display");
-      mortRateErr.classList.add("span");
-      mortRateText.classList.add("text-error");
-      mortRateIcon.classList.add("icon-error");
-
-      // to remove prompt message when error is rectified
-      mortRateText.addEventListener("input", () => {
-        if (mortRateErr.classList.contains("span")) {
-          mortRateErr.classList.add("no_display");
-          mortRateErr.classList.remove("span");
-          mortRateText.classList.remove("text-error");
-          mortRateIcon.classList.remove("icon-error");
-        }
-      });
-    }
+    mortRateErr.classList.remove("no_display");
+    mortRateErr.classList.add("span");
+    mortRateText.classList.add("text-error");
+    mortRateIcon.classList.add("icon-error");
+    return false;
   }
+
+  // check for each inputs
+  // mortgageAmount
+  if (!mortgageAmount || isNaN(mortgageAmount)) {
+    console.log(`helpaaaaa`);
+    mortAmountErr.classList.remove("no_display");
+    mortAmountErr.classList.add("span");
+    mortAmountText.classList.add("text-error");
+    mortAmountIcon.classList.add("icon-error");
+  }
+
+  // mortgageTerm
+  if (!mortgageTerm || isNaN(mortgageTerm)) {
+    console.log(`yo-yo!`);
+    mortTermErr.classList.remove("no_display");
+    mortTermErr.classList.add("span");
+    mortTermText.classList.add("text-error");
+    mortTermIcon.classList.add("icon-error");
+  }
+
+  // interestRate
+  if (!interestRate || isNaN(interestRate)) {
+    console.log(`yo-yo!`);
+    mortRateErr.classList.remove("no_display");
+    mortRateErr.classList.add("span");
+    mortRateText.classList.add("text-error");
+    mortRateIcon.classList.add("icon-error");
+  }
+
+  // mortgageType
+  if (!mortgageType) {
+    console.log(`yo-yo!`);
+    mortTypeErr.classList.remove("no_display");
+    mortTypeErr.classList.add("span");
+    // mortTypeText.classList.add("text-error");
+    // mortTypeIcon.classList.add("icon-error");
+
+    // to remove prompt message when error is rectified
+    mortTypeText.addEventListener("input", () => {
+      if (mortTypeErr.classList.contains("span")) {
+        mortTypeErr.classList.add("no_display");
+        mortTypeErr.classList.remove("span");
+        mortTypeText.classList.remove("text-error");
+        mortTypeIcon.classList.remove("icon-error");
+      }
+    });
+  }
+  return true;
 }
 
 // params for states
@@ -230,3 +242,36 @@ function showResult() {
   resultDisplayEmpty.classList.add("no_display");
   resultDisplayCompleted.classList.remove("no_display");
 }
+
+// listeners for user input
+//   // to remove prompt message when error is rectified
+
+// AMOUNT
+  mortAmountText.addEventListener("input", () => {
+    if (mortAmountErr.classList.contains("span")) {
+      mortAmountErr.classList.add("no_display");
+      mortAmountErr.classList.remove("span");
+      mortAmountText.classList.remove("text-error");
+      mortAmountIcon.classList.remove("icon-error");
+    }
+  });
+
+// TERM
+  mortTermText.addEventListener("input", () => {
+    if (mortTermErr.classList.contains("span")) {
+      mortTermErr.classList.add("no_display");
+      mortTermErr.classList.remove("span");
+      mortTermText.classList.remove("text-error");
+      mortTermIcon.classList.remove("icon-error");
+    }
+  });
+
+// RATE
+  mortRateText.addEventListener("input", () => {
+    if (mortRateErr.classList.contains("span")) {
+      mortRateErr.classList.add("no_display");
+      mortRateErr.classList.remove("span");
+      mortRateText.classList.remove("text-error");
+      mortRateIcon.classList.remove("icon-error");
+    }
+  });
