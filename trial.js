@@ -1,4 +1,5 @@
 "use strict";
+// NOTE TO SELF::: Some functions malfunction when variable declarations are made outside of them.
 const calC = document.querySelector("html");
 
 // params to clear
@@ -9,6 +10,7 @@ const resultDisplayEmpty = document.querySelector(".result__display-empty");
 const resultDisplayCompleted = document.querySelector(
   ".result__display-completed"
 );
+const errorMessages = document.querySelectorAll(".input__field span");
 
 // FUNCTION - clear computations
 function clearComputations() {
@@ -16,6 +18,7 @@ function clearComputations() {
   calcInputs.forEach((calcInput) => {
     calcInput.value = "";
     console.log(`i was clicked`);
+
     radioButtons.forEach((radioBtn) => {
       radioBtn.checked = false;
     });
@@ -30,6 +33,8 @@ function clearComputations() {
       icon.classList.remove("icon-error");
       error.classList.remove("span");
       error.classList.add("no_display");
+      document.querySelector(".type_err").classList.remove("span");
+      document.querySelector(".type_err").classList.add("no_display");
     });
   });
 
@@ -42,12 +47,6 @@ function clearComputations() {
 clearBtn.onclick = () => {
   clearComputations();
 };
-
-// params to compute
-const mortgageAmount = document.querySelector("#text__mort-amount").value;
-const mortgageTerm = document.querySelector("#text__mort-term").value;
-const interestRate = document.querySelector("#text__mort-rate").value;
-const mortgageType = document.querySelector(".radio-btn:checked");
 
 // FUNCTION - calculate mortgage
 function calculateMortgage() {
@@ -101,52 +100,36 @@ calcBtn.onclick = () => {
 
 // params to handle error
 const inputFieldRadios = document.querySelectorAll(".input__field-radio");
-
-// const mortAmountText = document.querySelector("#text__mort-amount");
-// const mortAmountIcon = document.querySelector("#icon__mort-amount");
-// const mortAmountErr = document.querySelector(".amount_err");
-
-// const mortTermText = document.querySelector("#text__mort-term");
-// const mortTermIcon = document.querySelector("#icon__mort-term");
-// const mortTermErr = document.querySelector(".term_err");
-
-// const mortRateText = document.querySelector("#text__mort-rate");
-// const mortRateIcon = document.querySelector("#icon__mort-rate");
-// const mortRateErr = document.querySelector(".rate_err");
-
-// const mortTypeErr = document.querySelector(".type_err");
 const mortgageAmount = document.querySelector("#text__mort-amount").value;
   const mortgageTerm = document.querySelector("#text__mort-term").value;
   const interestRate = document.querySelector("#text__mort-rate").value;
   const mortgageType = document.querySelector(".radio-btn:checked");
-  
+
   const mortAmountText = document.querySelector("#text__mort-amount");
-const mortAmountIcon = document.querySelector("#icon__mort-amount");
-const mortAmountErr = document.querySelector(".amount_err");
+  const mortAmountIcon = document.querySelector("#icon__mort-amount");
+  const mortAmountErr = document.querySelector(".amount_err");
 
-const mortTermText = document.querySelector("#text__mort-term");
-const mortTermIcon = document.querySelector("#icon__mort-term");
-const mortTermErr = document.querySelector(".term_err");
+  const mortTermText = document.querySelector("#text__mort-term");
+  const mortTermIcon = document.querySelector("#icon__mort-term");
+  const mortTermErr = document.querySelector(".term_err");
 
-const mortRateText = document.querySelector("#text__mort-rate");
-const mortRateIcon = document.querySelector("#icon__mort-rate");
-const mortRateErr = document.querySelector(".rate_err");
+  const mortRateText = document.querySelector("#text__mort-rate");
+  const mortRateIcon = document.querySelector("#icon__mort-rate");
+  const mortRateErr = document.querySelector(".rate_err");
 
-const mortTypeErr = document.querySelector(".type_err");
-
-
+  const mortTypeErr = document.querySelector(".type_err");
 
 // FUNCTION - confirm all inputs are filled
 function checkInputs() {
   // check all inputs
   if (
-    (!mortgageAmount ||
-    isNaN(mortgageAmount)) &&
-    (!mortgageTerm ||
-    isNaN(mortgageTerm)) &&
-    (!interestRate ||
-    isNaN(interestRate)) &&
-    (!mortgageType)
+    !mortgageAmount ||
+    isNaN(mortgageAmount) &&
+    !mortgageTerm ||
+    isNaN(mortgageTerm) &&
+    !interestRate ||
+    isNaN(interestRate) &&
+    !mortgageType
   ) {
     console.log('mortgageAmount: ', mortgageAmount)
     console.log('mortgageTerm: ', mortgageTerm)
@@ -170,34 +153,55 @@ function checkInputs() {
     return false;
   }
 
-    // check for each inputs
-    // mortgageAmount
-    if (!mortgageAmount ||
-        isNaN(mortgageAmount)) {
+  // check for each inputs
+  // mortgageAmount
+  if (!mortgageAmount || isNaN(mortgageAmount)) {
     console.log(`helpaaaaa`);
-    mortAmountErr.classList.remove('no_display');
-    mortAmountErr.classList.add('span');
-    mortAmountText.classList.add('text-error');
-    mortAmountIcon.classList.add('icon-error');
-
-     // to remove prompt message when error is rectified
-     mortAmountText.addEventListener('input', () => {
-        if(mortAmountErr.classList.contains('span')){
-            mortAmountErr.classList.add('no_display');
-            mortAmountErr.classList.remove('span');
-            mortAmountText.classList.remove('text-error');
-            mortAmountIcon.classList.remove('icon-error');
-        }
-    })
-    }
-   
-
-
-
+    mortAmountErr.classList.remove("no_display");
+    mortAmountErr.classList.add("span");
+    mortAmountText.classList.add("text-error");
+    mortAmountIcon.classList.add("icon-error");
   }
+
+  // mortgageTerm
+  if (!mortgageTerm || isNaN(mortgageTerm)) {
+    console.log(`yo-yo!`);
+    mortTermErr.classList.remove("no_display");
+    mortTermErr.classList.add("span");
+    mortTermText.classList.add("text-error");
+    mortTermIcon.classList.add("icon-error");
+  }
+
+  // interestRate
+  if (!interestRate || isNaN(interestRate)) {
+    console.log(`yo-yo!`);
+    mortRateErr.classList.remove("no_display");
+    mortRateErr.classList.add("span");
+    mortRateText.classList.add("text-error");
+    mortRateIcon.classList.add("icon-error");
+  }
+
+  // mortgageType
+  if (!mortgageType) {
+    console.log(`yo-yo!`);
+    mortTypeErr.classList.remove("no_display");
+    mortTypeErr.classList.add("span");
+    // mortTypeText.classList.add("text-error");
+    // mortTypeIcon.classList.add("icon-error");
+
+    // to remove prompt message when error is rectified
+    mortTypeText.addEventListener("input", () => {
+      if (mortTypeErr.classList.contains("span")) {
+        mortTypeErr.classList.add("no_display");
+        mortTypeErr.classList.remove("span");
+        mortTypeText.classList.remove("text-error");
+        mortTypeIcon.classList.remove("icon-error");
+      }
+    });
+  }
+  return true;
 }
 
-// **********************
 // params for states
 const inputFieldTexts = document.querySelectorAll(".input__field-text");
 const inputFieldIcons = document.querySelectorAll(".input__field-icon");
@@ -227,6 +231,17 @@ inputFieldRadios.forEach((x) => {
     x.classList.remove("field-active");
   });
 });
+
+// FUNCTION - hide result
+function hideResult() {
+  resultDisplayEmpty.classList.remove("no_display");
+  resultDisplayCompleted.classList.add("no_display");
+}
+// FUNCTION - show result
+function showResult() {
+  resultDisplayEmpty.classList.add("no_display");
+  resultDisplayCompleted.classList.remove("no_display");
+}
 
 // listeners for user input
 //   // to remove prompt message when error is rectified
